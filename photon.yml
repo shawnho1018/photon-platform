@@ -1,0 +1,64 @@
+compute:
+  hypervisors:
+    esxi-1:
+      hostname: "esxi-1"
+      ipaddress: "192.168.62.145"
+      dns: "192.168.62.10"
+      credential:
+        username: "root"
+        password: "VMware1!"
+lightwave:
+  domain: "shawn.local"
+  credential:
+    username: "administrator"
+    password: "VMware1!"
+  controllers:
+    lightwave-1:
+      site: "wdc"
+      appliance:
+        hostref: "esxi-1"
+        datastore: "datastore1"
+      credential:
+        username: "root"
+        password: "VMware1!"
+      network-config:
+        network: "NAT=VM Network"
+        type: "static"
+        hostname: "lightwave-1.shawn.local"
+        ipaddress: "192.168.62.10"
+        dns: "192.168.62.10"
+        ntp: "192.168.62.10"
+        netmask: "255.255.255.0"
+        gateway: "192.168.62.2"
+photon:
+  imagestore:
+    img-store-1:
+      datastore: "datastore1"
+      enableimagestoreforvms: "true"
+  cloud:
+    hostref1: "esxi-1"
+  controllers:
+    pc-1:
+      appliance:
+        hostref: "esxi-1"
+        datastore: "datastore1"
+      credential:
+        username: "root"
+        password: "VMware1!"
+      network-config:
+        network: "NAT=VM Network"
+        type: "static"
+        hostname: "pc-1.shawn.local"
+        ipaddress: "192.168.62.20"
+        netmask: "255.255.0.0"
+        dns: "192.168.62.10"
+        ntp: "192.168.62.10"
+        gateway: "192.168.62.2"
+loadBalancer:
+  load-balancer-1:
+    appliance:
+      hostref: "esxi-1"
+      datastore: "datastore1"
+    credential:
+      username: "root"
+      password: "VMware1!"

@@ -1,0 +1,3 @@
+# Exclude specified files and folders
+*.sh
+*darwin*
